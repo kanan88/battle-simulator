@@ -1,0 +1,32 @@
+.battle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__desc {
+    font-size: 3rem;
+    color: var(--color-white-1);
+  }
+
+  &__button {
+    &,
+    &:link,
+    &:visited {
+      padding: 1.5rem;
+      transition: all .2s;
+      background-color: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    &:hover {
+      opacity: 0.5;
+    }
+
+    &:active,
+    &:focus {
+      outline: none;
+    }
+  }
+}

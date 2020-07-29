@@ -1,25 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import SimulatorState from "./context/simulator/simulator.state";
 
-function App() {
+import Header from "./components/header/header.component";
+import Hero from "./components/hero/hero.component";
+import Villain from "./components/villain/villain.component";
+import Battle from "./components/battle/battle.component";
+
+import './App.scss';
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <SimulatorState>
+        <div className="container">
+            <Header />
+
+            <div className="main">
+                <Hero />
+                <Battle />
+                <Villain />
+            </div>
+        </div>
+      </SimulatorState>
   );
 }
 

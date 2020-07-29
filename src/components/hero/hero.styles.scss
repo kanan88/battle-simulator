@@ -1,0 +1,24 @@
+.hero {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  &__img {
+    height: 20rem;
+  }
+
+  &__life {
+    color: var(--color-white-1);
+    font-size: 5rem;
+  }
+
+  &__points {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__point {
+    height: 5rem;
+    margin: 1rem;
+  }
+}
