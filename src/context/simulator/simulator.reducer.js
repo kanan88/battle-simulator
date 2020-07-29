@@ -3,7 +3,7 @@ import {
     SET_HERO_POINTS,
     SET_VILLAIN_LIFE,
     SET_VILLAIN_POINTS,
-    SET_MESSAGE
+    SET_MESSAGE, SET_GAME_OVER
 } from '../types';
 
 export default (state, action) => {
@@ -32,6 +32,11 @@ export default (state, action) => {
             return {
                 ...state,
                 message: action.payload
+            }
+        case SET_GAME_OVER:
+            return {
+                ...state,
+                gameOver: action.payload
             }
         default:
             return state;

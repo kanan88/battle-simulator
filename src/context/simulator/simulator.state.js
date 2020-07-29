@@ -8,7 +8,8 @@ import {
     SET_HERO_POINTS,
     SET_VILLAIN_LIFE,
     SET_VILLAIN_POINTS,
-    SET_MESSAGE
+    SET_MESSAGE,
+    SET_GAME_OVER
 } from '../types';
 
 // roll a dice function
@@ -28,7 +29,8 @@ const SimulatorState = ({children}) => {
             dice1: 0,
             dice2: 0
         },
-        message: ''
+        message: '',
+        gameOver: false
     }
 
     const [state, dispatch] = useReducer(simulatorReducer, initialState);
@@ -38,6 +40,16 @@ const SimulatorState = ({children}) => {
         const heroPoint2 = rollDice(1, 6);
         const villainPoint1 = rollDice(1, 6);
         const villainPoint2 = rollDice(1, 6);
+
+        if (
+            state.heroLife - (villainPoint1 + villainPoint2 - heroPoint1 - heroPoint2) <= 0 ||
+            state.villainLife - (heroPoint1 + heroPoint2 - villainPoint1 - villainPoint2) <= 0
+        ) {
+            dispatch({
+                type: SET_GAME_OVER,
+                payload: true
+            });
+        }
 
         if (heroPoint1 + heroPoint2 === villainPoint1 + villainPoint2) {
             dispatch({
@@ -93,6 +105,7 @@ const SimulatorState = ({children}) => {
                 heroPoints: state.heroPoints,
                 villainPoints: state.villainPoints,
                 message: state.message,
+                gameOver: state.gameOver,
                 onBattle
             }}>
             {children}
