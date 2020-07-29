@@ -14,8 +14,16 @@
   --color-black-1: #000;
 }
 
+// BREAKPOINTS
+$bp-largest: 65.625em; // 1050px
+$bp-large: 53.125em; // 850px
+
 html {
   font-size: 62.5%; // 10/16  1rem = 10px
+
+  @media only screen and (max-width: $bp-largest) {
+    font-size: 50%;
+  }
 }
 
 body {
@@ -33,6 +41,7 @@ body {
   grid-template-rows: repeat(12, 1fr);
   grid-template-columns: repeat(12, 1fr);
   max-width: 120rem;
+  min-width: 700px;
   position: relative;
   margin: auto;
 }

@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .battle {
   display: flex;
   flex-direction: column;
@@ -7,6 +9,10 @@
   &__desc {
     font-size: 3rem;
     color: var(--color-white-1);
+
+    @media only screen and (max-width: $bp-large) {
+      font-size: 2rem;
+    }
   }
 
   &__button {
@@ -18,6 +24,16 @@
       background-color: transparent;
       border: none;
       cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      img {
+        @media only screen and (max-width: $bp-large) {
+          width: 10rem;
+        }
+      }
     }
 
     &:hover {

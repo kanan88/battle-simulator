@@ -1,3 +1,5 @@
+@import "../../App.scss";
+
 .hero {
   display: flex;
   justify-content: flex-start;
@@ -5,6 +7,10 @@
 
   &__img {
     height: 20rem;
+
+    @media only screen and (max-width: $bp-large) {
+      height: 15rem;
+    }
   }
 
   &__life {
